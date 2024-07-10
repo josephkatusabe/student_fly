@@ -9,8 +9,6 @@ export async function POST(req: Request) {
 
     const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET
 
-    console.log(WEBHOOK_SECRET)
-
     if (!WEBHOOK_SECRET) {
         throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
     }
@@ -105,4 +103,9 @@ export async function POST(req: Request) {
       }
 
     return new Response('', { status: 200 })
+}
+
+export async function GET(req: Request) {
+    console.log("Get")
+    return new Response('OK', { status: 200 })
 }
